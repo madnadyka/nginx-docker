@@ -1,0 +1,8 @@
+docker build -t nginx .
+docker container stop nginx
+docker container rm nginx
+docker run --rm \
+           --name nginx \
+           -v $(pwd)/cert:/cert/ \
+           --net=host \
+           -it nginx
